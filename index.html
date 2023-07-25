@@ -3,31 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
-
-  
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
-
-  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Rock, Paper, Scissors V2</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
   <main>
     <header>
       <div class="title"></div>
+
+      <!-- Score -->
       <div class="score">
         <div class="player score_box">
           <p class="name">Player</p>
           <p class="score_num" id="playerScoreNum">0</p>
         </div>
+
         <div class="cpu score_box">
           <p class="name">CPU</p>
           <p class="score_num" id="cpuScoreNum">0</p>
@@ -36,28 +30,66 @@
     </header>
 
     <div class="game">
-      <div class="select">
+
+      <!-- Easy Mode -->
+      <div class="easySelect">
+
         <div class="btn_border paper_border">
           <button class="btn" onclick="play('paper')"><img src="images/icon-paper.svg" alt="Paper"></button>
         </div>
+
         <div class="btn_border scissors_border">
           <button class="btn" onclick="play('scissors')"><img src="images/icon-scissors.svg" alt="Scissors"></button>
         </div>
+
         <div class="btn_border rock_border">
           <button class="btn" onclick="play('rock')"><img src="images/icon-rock.svg" alt="Rock"></button>
         </div>
+
       </div>
+
+      <!-- Advanced Mode -->
+      <div class="advancedSelect">
+
+        <div class="btn_border scissors_border">
+          <button class="btn" onclick="play('scissors')"><img src="images/icon-scissors.svg" alt="Scissors"></button>
+        </div>
+
+        <div class="btn_border spock_border">
+          <button class="btn" onclick="play('spock')"><img src="images/icon-spock.svg" alt="Spock"></button>
+        </div>
+
+        <div class="btn_border paper_border">
+          <button class="btn" onclick="play('paper')"><img src="images/icon-paper.svg" alt="Paper"></button>
+        </div>
+
+        <div class="btn_border lizard_border">
+          <button class="btn" onclick="play('lizard')"><img src="images/icon-lizard.svg" alt="Lizard"></button>
+        </div>
+
+        <div class="btn_border rock_border">
+          <button class="btn" onclick="play('rock')"><img src="images/icon-rock.svg" alt="Rock"></button>
+        </div>
+
+      </div>
+
+      <!-- Result Container -->
       <div class="result">
+
         <div class="playerChoice">
           <p>You picked</p>
+          <div class="btn_bg">
             <div id="player" class="btn_border">
               <button class="btn"><img id="playerImg" src="" alt=""></button>
             </div>
+          </div>
         </div>
+
         <div class="playAgain">
           <p class="msg">You Win</p>
           <button class="play_again_btn" onclick="newRound()">Play Again</button>
         </div>
+
         <div class="cpuChoice">
           <p>Cpu picked</p>
           <div class="btn_bg">
@@ -66,27 +98,45 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
+      </div>
+
+    <!-- Rules Modul -->
     <div class="rules">
       <p>Rules</p>
       <button class="close" onclick="rules('close')"></button>
       <div class="rules_img"></div>
     </div>
-    
   </main>
-  <div class="gameOver">
-      <p class="gameOverMsg"></p>
-      <button class="play_again_btn" onclick="resetScore()">Play Again</button>
+
+  <!-- Select Mode -->
+  <div class="changeMode">
+
+    <div class="easy" onclick="updateUI('easy')"></div>
+
+    <p>Or</p>
+
+    <div class="advanced" onclick="updateUI('advanced')"></div>
+
   </div>
+
+  <!-- Game Over! -->
+  <div class="gameOver">
+
+      <p class="gameOverMsg"></p>
+      
+      <button class="play_again_btn" onclick="resetScore()">Play Again</button>
+
+  </div>
+
   <footer>
+    <button onclick="changeModeBtn('open')">Change Mode</button>
+
+    <button onclick="rules('open')">rules</button>
+
     <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
       Coded by <a href="#">Oleg Andronic / DarthEND</a>.
-    </div>
-    <div>
-      <button onclick="rules('open')">rules</button>
     </div>
   </footer>
   <script src="script.js"></script>
